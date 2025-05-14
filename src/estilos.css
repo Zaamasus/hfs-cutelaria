@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white dark:bg-slate-900 text-slate-900 dark:text-white;
+  }
+  
+  /* Estilo para barra de rolagem no tema escuro */
+  .dark ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    @apply bg-background-secondary;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-dark-300 rounded-full hover:bg-dark-400;
+  }
+
+  /* Seleção de texto no tema escuro */
+  .dark ::selection {
+    @apply bg-amber-500/30 text-gray-100;
+  }
+}
+
+@layer components {
+  .bg-banner {
+    @apply bg-cover bg-center bg-no-repeat;
+    background-attachment: fixed;
+  }
+}
+
+/* Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@layer utilities {
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s infinite;
+  }
+
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+}
+
+/* Transições suaves para mudanças de tema */
+* {
+  @apply transition-colors duration-200;
+} 
